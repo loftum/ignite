@@ -9,26 +9,37 @@ namespace WindowsFormsApp1
     public partial class Form1 : Form
     {
         private readonly Label _label;
+        private readonly TextBox _input;
 
         public Form1()
         {
             InitializeComponent();
-            var button = new Button
-            {
-                Text = "Malplaced button",
-                Location = new Point(50, 120),
-                Size = new Size(100, 50),
-            };
-            button.Click += Message_Click;
-            Controls.Add(button);
 
             _label = new Label
             {
-                Text = "Hello",
+                Text = "(Why is this label here?)",
                 Location = new Point(Width - 200, Height - 100),
                 Size = new Size(100, 50)
             };
             Controls.Add(_label);
+
+
+            _input = new TextBox
+            {
+                Text = "Hest er best på fest",
+                PlaceholderText = "Enter message",
+                Size = new Size(200, 50),
+                Location = new Point(Width / 4, 10)
+            };
+            Controls.Add(_input);
+            var toastButton = new Button
+            {
+                Text = "Send toast",
+                Location = new Point(_input.Location.X + _input.Width, _input.Location.Y),
+                Size = new Size(100, 50),
+            };
+            toastButton.Click += Message_Click;
+            Controls.Add(toastButton);
         }
 
         private void Message_Click(object sender, EventArgs e)
@@ -49,7 +60,7 @@ namespace WindowsFormsApp1
                         {
                             new AdaptiveText
                             {
-                                Text = "Hest er best paa fest!"
+                                Text = _input.Text ?? "Hest er best på fest"
                             }
                         }
                     }
