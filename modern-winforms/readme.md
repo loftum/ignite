@@ -3,6 +3,9 @@
 ## Enable Windows 10 developer mode
 Settings -> Develper Settings -> Check Developer mode
 
+## Enable notifications
+Settings -> Notifications and action settings -> Get notifications from apps and other senders
+
 ## Visual studio stuff
 1) Start Visual Studio Installer
 2) Select .NET desktop development
